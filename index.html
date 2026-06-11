@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION | Frontend UI Demonstration</title>
+    <meta name="description" content="ORION is a frontend UI demonstration created for educational purposes. This is not a real search engine and does not collect any data.">
+    <!-- Favicon from assets folder -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts: Inter for modern, clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body class="new-look"> <!-- Defaulting to new-look layout (can be toggled) -->
+
+    <!-- Splash Screen – Pure CSS ORION startup animation -->
+    <div id="splash-screen" aria-hidden="true">
+        <div class="splash-orion">
+            <!-- Step 1 & 2: Blue light dot that stretches into a line -->
+            <div class="splash-line-wrap">
+                <div class="splash-dot"></div>
+                <div class="splash-line"></div>
+            </div>
+            <!-- Step 3-4: ORION letters appear one by one -->
+            <div class="splash-wordmark">
+                <span class="sl" style="--i:0">O</span><span class="sl" style="--i:1">R</span><span class="sl"
+                    style="--i:2">I</span><span class="sl" style="--i:3">O</span><span class="sl" style="--i:4">N</span>
+            </div>
+            <!-- Step 5: Tagline fades in -->
+            <div class="splash-tagline">DISCOVER WITHOUT LIMITS</div>
+        </div>
+    </div>
+
+    <!-- Background Layer -->
+    <div class="background-container">
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+
+        <!-- Header -->
+        <header>
+            <div class="header-left">
+                <!-- Using horizontal rect logo in header as well -->
+                <img src="Logo.png" alt="ORION Logo" class="header-logo-img">
+            </div>
+
+            <div class="header-right">
+                <div class="toggle-container">
+                    <span class="toggle-label">New Look</span>
+                    <label class="switch">
+                        <input type="checkbox" id="new-look-checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="icon-btn" title="Settings (Demo)" id="settings-btn">
+                    <i class="bx bx-cog"></i>
+                </div>
+                <div class="icon-btn user-avatar" title="Profile (Demo – No Login)">
+                    <i class="bx bx-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main>
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-brand">
+                    <!-- Clean, non-animated horizontal rect logo above search bar -->
+                    <img src="Logo.png" alt="ORION Search Logo" class="hero-logo-img">
+                    <p class="tagline">Discover Without Limits</p>
+                </div>
+
+                <!-- Search Input Container — Demo only, no real search -->
+                <div class="search-container">
+                    <div class="search-box" id="search-box">
+                        <i class="bx bx-search search-icon"></i>
+                        <input type="text" placeholder="Search the web... (UI Demo Only)" autocomplete="off"
+                            autofocus id="search-input" readonly>
+                        <div class="search-actions">
+                            <button type="button" title="Voice Search (Demo)" id="voice-btn">
+                                <i class="bx bx-microphone"></i>
+                            </button>
+                            <button type="button" title="Search by Image (Demo)" id="image-btn">
+                                <i class="bx bx-camera"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Access Section: Visual showcase only – no external redirects -->
+            <div class="quick-access">
+
+                <!-- Gmail -->
+                <div class="shortcut" role="img" aria-label="Gmail shortcut preview">
+                    <svg class="shortcut-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24 5.457v13.996c0 .99-.8 1.792-1.787 1.792h-4.757V10.04L12 14.24l-5.456-4.2v11.205H1.787A1.787 1.787 0 0 1 0 19.453V5.457c0-1.35 1.482-2.094 2.54-1.257L12 11.543l9.46-7.343c1.058-.837 2.54-.093 2.54 1.257Z"
+                            fill="#EA4335" />
+                    </svg>
+                    <span>Gmail</span>
+                </div>
+
+                <!-- YouTube -->
+                <div class="shortcut" role="img" aria-label="YouTube shortcut preview">
+                    <svg class="shortcut-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11C4.483 20.455 12 20.455 12 20.455s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837z"
+                            fill="#FF0000" />
+                        <polygon points="9.545,15.568 15.818,12 9.545,8.432" fill="#FFFFFF" />
+                    </svg>
+                    <span>YouTube</span>
+                </div>
+
+                <!-- GitHub -->
+                <div class="shortcut" role="img" aria-label="GitHub shortcut preview">
+                    <svg class="shortcut-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                            fill="#FFFFFF" />
+                    </svg>
+                    <span>GitHub</span>
+                </div>
+
+                <!-- Spotify -->
+                <div class="shortcut" role="img" aria-label="Spotify shortcut preview">
+                    <svg class="shortcut-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="12" fill="#1DB954" />
+                        <path
+                            d="M17.09 16.76a.75.75 0 0 1-1.03.25c-2.83-1.73-6.39-2.12-10.58-1.16a.75.75 0 1 1-.33-1.46c4.59-1.05 8.53-.6 11.7 1.34a.75.75 0 0 1 .24 1.03zm1.44-3.2a.94.94 0 0 1-1.29.31c-3.23-1.99-8.16-2.56-11.99-1.4a.94.94 0 1 1-.55-1.8c4.37-1.33 9.8-.69 13.52 1.6a.94.94 0 0 1 .31 1.29zm.12-3.33C14.78 7.9 8.6 7.7 5.04 8.76a1.12 1.12 0 1 1-.65-2.15C8.77 5.42 15.6 5.65 20.03 8.38a1.12 1.12 0 0 1-1.38 1.85z"
+                            fill="#FFFFFF" />
+                    </svg>
+                    <span>Spotify</span>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="shortcut" role="img" aria-label="LinkedIn shortcut preview">
+                    <svg class="shortcut-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" rx="3" fill="#0077B5" />
+                        <path
+                            d="M7.75 10.25H5.25v8.5h2.5v-8.5zm-1.25-1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm12 1c-1.38 0-2.29.74-2.68 1.43V10.25h-2.5v8.5h2.5v-4.6c0-1.09.85-2.15 2.02-2.15 1.17 0 1.66.88 1.66 2.15v4.6h2.5V14.1c0-2.62-1.47-3.85-3.5-3.85z"
+                            fill="#FFFFFF" />
+                    </svg>
+                    <span>LinkedIn</span>
+                </div>
+
+                <!-- Instagram -->
+                <div class="shortcut" role="img" aria-label="Instagram shortcut preview">
+                    <svg class="shortcut-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+                                <stop offset="0%" stop-color="#ffd600" />
+                                <stop offset="10%" stop-color="#ff7a00" />
+                                <stop offset="50%" stop-color="#d300c4" />
+                                <stop offset="100%" stop-color="#7638fa" />
+                            </radialGradient>
+                        </defs>
+                        <rect width="24" height="24" rx="6" fill="url(#ig-grad)" />
+                        <circle cx="12" cy="12" r="4.5" fill="none" stroke="#fff" stroke-width="1.8" />
+                        <circle cx="17.5" cy="6.5" r="1.2" fill="#fff" />
+                    </svg>
+                    <span>Instagram</span>
+                </div>
+
+                <!-- Canva -->
+                <div class="shortcut" role="img" aria-label="Canva shortcut preview">
+                    <svg class="shortcut-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="canva-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00C4CC" />
+                                <stop offset="50%" stop-color="#7D2AE8" />
+                                <stop offset="100%" stop-color="#FF007F" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="24" height="24" rx="6" fill="url(#canva-grad)" />
+                        <path
+                            d="M12 5c-3.87 0-7 3.13-7 7s3.13 7 7 7c2.19 0 4.12-1 5.41-2.58l-1.45-1.04c-.9 1.11-2.26 1.82-3.96 1.82-2.83 0-5.13-2.3-5.13-5.13S9.17 6.87 12 6.87c1.7 0 3.06.71 3.96 1.82l1.45-1.04A6.96 6.96 0 0 0 12 5z"
+                            fill="#FFFFFF" />
+                    </svg>
+                    <span>Canva</span>
+                </div>
+
+                <!-- Add Link (Demo Only) -->
+                <div class="shortcut add-shortcut" id="add-shortcut-btn" role="button" tabindex="0" title="Add Link (Demo)">
+                    <i class="bx bx-plus"></i>
+                    <span>Add Link</span>
+                </div>
+
+            </div>
+
+            <!-- Dashboard Modules (Always Visible, Styled Minimalist Card system) -->
+            <div class="dashboard-grid">
+
+                <!-- Weather Card -->
+                <div class="card weather-card">
+                    <div class="card-header">
+                        <h3><i class="bx bx-cloud-sun"></i> Weather</h3>
+                        <i class="bx bx-dots-horizontal-rounded header-action" title="Options (Demo)"></i>
+                    </div>
+                    <div class="weather-content">
+                        <div class="weather-main">
+                            <div class="weather-temp-block">
+                                <span class="weather-temp">72</span>
+                                <span class="weather-unit">°F</span>
+                            </div>
+                            <i class="bx bx-sun weather-icon-large"></i>
+                        </div>
+                        <div class="weather-info">
+                            <span class="weather-location">Seattle, WA</span>
+                            <span class="weather-condition">Sunny and clear skies</span>
+                        </div>
+                        <div class="weather-stats">
+                            <div class="weather-stat-item">
+                                <span class="weather-stat-label">Humidity</span>
+                                <span class="weather-stat-val">42%</span>
+                            </div>
+                            <div class="weather-stat-item">
+                                <span class="weather-stat-label">Wind</span>
+                                <span class="weather-stat-val">8 mph</span>
+                            </div>
+                            <div class="weather-stat-item">
+                                <span class="weather-stat-label">Precip</span>
+                                <span class="weather-stat-val">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Topics -->
+                <div class="card trending-card">
+                    <div class="card-header">
+                        <h3><i class="bx bx-trending-up"></i> Trending Now</h3>
+                        <i class="bx bx-refresh header-action" title="Refresh Trends (Demo)" id="refresh-trends"></i>
+                    </div>
+                    <ul class="trending-list">
+                        <li>
+                            <div class="trending-item">
+                                <span class="trending-rank">1</span>
+                                <span class="trending-keyword">NASA Artemis Constellation</span>
+                                <span class="trending-trend"><i class="bx bx-upvote"></i> +142%</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="trending-item">
+                                <span class="trending-rank">2</span>
+                                <span class="trending-keyword">500-Qubit Quantum Chip</span>
+                                <span class="trending-trend"><i class="bx bx-upvote"></i> +89%</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="trending-item">
+                                <span class="trending-rank">3</span>
+                                <span class="trending-keyword">Silicon Photonics Trend</span>
+                                <span class="trending-trend"><i class="bx bx-upvote"></i> +64%</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="trending-item">
+                                <span class="trending-rank">4</span>
+                                <span class="trending-keyword">WebGPU W3C Release</span>
+                                <span class="trending-trend"><i class="bx bx-upvote"></i> +37%</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- News Preview Card -->
+                <div class="card news-card">
+                    <div class="card-header">
+                        <h3><i class="bx bx-news"></i> Tech News</h3>
+                        <i class="bx bx-dots-horizontal-rounded header-action" title="More News (Demo)"></i>
+                    </div>
+                    <div class="news-list">
+                        <div class="news-item">
+                            <!-- SVG placeholder with a techy pattern for the news thumb -->
+                            <svg class="news-thumb" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="url(#news-grad-1)" />
+                                <circle cx="50" cy="50" r="25" fill="none" stroke="rgba(255,255,255,0.15)"
+                                    stroke-width="2" />
+                                <line x1="0" y1="0" x2="100" y2="100" stroke="rgba(255,255,255,0.05)"
+                                    stroke-width="1" />
+                                <defs>
+                                    <linearGradient id="news-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0B1220" />
+                                        <stop offset="100%" stop-color="#00CFFF" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="news-body">
+                                <h4 class="news-title">Next-gen Fusion Reactors pass plasma density threshold</h4>
+                                <div class="news-meta">
+                                    <span>TechReview</span>
+                                    <span>•</span>
+                                    <span>2h ago</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-item">
+                            <svg class="news-thumb" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="100%" height="100%" fill="url(#news-grad-2)" />
+                                <circle cx="30" cy="30" r="10" fill="none" stroke="rgba(255,255,255,0.15)"
+                                    stroke-width="2" />
+                                <line x1="0" y1="100" x2="100" y2="0" stroke="rgba(255,255,255,0.05)"
+                                    stroke-width="1" />
+                                <defs>
+                                    <linearGradient id="news-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0B1220" />
+                                        <stop offset="100%" stop-color="#00E5FF" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="news-body">
+                                <h4 class="news-title">Open-source orbital flight tracker gains developer support</h4>
+                                <div class="news-meta">
+                                    <span>Reuters</span>
+                                    <span>•</span>
+                                    <span>4h ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Popular Websites Section — Visual showcase only -->
+            <div class="popular-section">
+                <h3 class="popular-title">Popular Websites</h3>
+                <div class="popular-grid">
+
+                    <div class="popular-category">
+                        <div class="category-name">Dev Resources</div>
+                        <div class="category-links">
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i>
+                                Stack Overflow</span>
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i>
+                                MDN Web Docs</span>
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i>
+                                W3Schools</span>
+                        </div>
+                    </div>
+
+                    <div class="popular-category">
+                        <div class="category-name">Reference</div>
+                        <div class="category-links">
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i>
+                                Wikipedia</span>
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i> Reddit</span>
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i> Quora</span>
+                        </div>
+                    </div>
+
+                    <div class="popular-category">
+                        <div class="category-name">Productivity</div>
+                        <div class="category-links">
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i> Trello</span>
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i> Notion</span>
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i> Slack</span>
+                        </div>
+                    </div>
+
+                    <div class="popular-category">
+                        <div class="category-name">Tech News</div>
+                        <div class="category-links">
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i>
+                                Hacker News</span>
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i> Wired</span>
+                            <span class="demo-link"><i class="bx bx-chevron-right"></i>
+                                TechCrunch</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <span class="footer-demo-label">Frontend UI Demo</span>
+                <span class="footer-separator">|</span>
+                <span class="footer-demo-label">No Data Collected</span>
+                <span class="footer-separator">|</span>
+                <span class="footer-demo-label">Educational Project</span>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 ORION – Frontend UI Demonstration. Not a real search engine.
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Demo Disclaimer Banner -->
+    <div id="demo-banner" aria-label="Demo disclaimer">
+        <span>⚠️ This is a <strong>frontend UI demonstration</strong> created for educational purposes. No real search, no data collection, no external redirects.</span>
+        <button id="dismiss-banner" title="Dismiss" aria-label="Dismiss banner">&times;</button>
+    </div>
+
+    <!-- Script File -->
+    <script src="script.js"></script>
+</body>
+
+</html>
